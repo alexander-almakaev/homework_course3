@@ -1,5 +1,5 @@
 import json
-
+from classes import Operation
 
 def read_src(file):
     json_data = []
@@ -10,3 +10,13 @@ def read_src(file):
             json_data.append(i)
     sort_by_date = sorted(json_data, key=lambda x: x["date"], reverse=True)
     return sort_by_date
+
+
+def get_latest_transactions():
+    filtered_list = read_src("operations.json")
+    for item in filtered_list:
+        operation = Operation(item)
+        if operation.count <= 5:
+            print(f'{operation.date} {operation.description}\n'
+                  f'{operation.sender} -> {operation.receiver}\n'
+                  f'{operation.amount} {operation.currency}\n')

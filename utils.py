@@ -2,7 +2,9 @@ import json
 from classes import Operation
 
 def read_src(file):
-    """Функция чтения файла с исходными данными, их фильтрации и сортировки"""
+    """
+    Функция чтения файла с исходными данными, их фильтрации и сортировки
+    """
     json_data = []
     with open(file) as src:
         json_src = json.load(src)
@@ -14,7 +16,9 @@ def read_src(file):
 
 
 def get_latest_transactions():
-    """Функция создания экземпляров класса транзакций и вывода их на экран"""
+    """
+    Функция создания экземпляров класса транзакций и вывода их на экран
+    """
     filtered_list = read_src("operations.json")
     for item in filtered_list:
         operation = Operation(item)

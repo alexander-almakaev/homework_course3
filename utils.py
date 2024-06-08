@@ -1,6 +1,7 @@
 import json
 from classes import Operation
 
+
 def read_src(file):
     """
     Функция чтения файла с исходными данными, их фильтрации и сортировки
